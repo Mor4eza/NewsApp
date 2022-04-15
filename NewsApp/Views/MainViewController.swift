@@ -48,7 +48,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)
-        let detailsVC = storyBoard.instantiateViewController(withIdentifier: "DetailsViewController")
+        let detailsVC = storyBoard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
+        detailsVC.newsID = news[indexPath.row]
         navigationController?.pushViewController(detailsVC, animated: true)
     }
     

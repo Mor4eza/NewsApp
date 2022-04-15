@@ -64,13 +64,43 @@
                     <view key="view" contentMode="scaleToFill" id="wMI-0I-bc4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLm-PF-2XW">
+                                <rect key="frame" x="10" y="64" width="394" height="23"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UyH-DO-1gd">
+                                <rect key="frame" x="0.0" y="95" width="414" height="767"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="XNZ-OZ-TRR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZLm-PF-2XW" firstAttribute="top" secondItem="XNZ-OZ-TRR" secondAttribute="top" constant="20" id="6bc-tK-Ztg"/>
+                            <constraint firstItem="UyH-DO-1gd" firstAttribute="leading" secondItem="XNZ-OZ-TRR" secondAttribute="leading" id="7OV-3P-FOU"/>
+                            <constraint firstItem="ZLm-PF-2XW" firstAttribute="leading" secondItem="XNZ-OZ-TRR" secondAttribute="leading" constant="10" id="OMG-V3-pfU"/>
+                            <constraint firstItem="UyH-DO-1gd" firstAttribute="top" secondItem="ZLm-PF-2XW" secondAttribute="bottom" constant="8" symbolic="YES" id="WYU-y6-elt"/>
+                            <constraint firstItem="XNZ-OZ-TRR" firstAttribute="trailing" secondItem="UyH-DO-1gd" secondAttribute="trailing" id="XDC-xB-080"/>
+                            <constraint firstItem="ZLm-PF-2XW" firstAttribute="centerX" secondItem="wMI-0I-bc4" secondAttribute="centerX" id="ZER-zj-xMd"/>
+                            <constraint firstItem="XNZ-OZ-TRR" firstAttribute="bottom" secondItem="UyH-DO-1gd" secondAttribute="bottom" id="euU-wo-hoq"/>
+                            <constraint firstItem="XNZ-OZ-TRR" firstAttribute="trailing" secondItem="ZLm-PF-2XW" secondAttribute="trailing" constant="10" id="ko3-Zq-ZJl"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="ZLm-PF-2XW" id="hqq-ne-Fxu"/>
+                        <outlet property="webView" destination="UyH-DO-1gd" id="F8g-nH-up4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTx-ne-ecn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759" y="110"/>
+            <point key="canvasLocation" x="1806" y="110"/>
         </scene>
     </scenes>
     <resources>

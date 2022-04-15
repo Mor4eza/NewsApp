@@ -8,5 +8,6 @@
 import Foundation
 
 struct News: Codable {
-    
+    let title: String
+    let url: String
 }
