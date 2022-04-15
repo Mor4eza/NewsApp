@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var newsTableView: UITableView!
     var viewModel: MainViewModel?
