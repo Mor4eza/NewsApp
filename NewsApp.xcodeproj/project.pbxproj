@@ -23,8 +23,13 @@
 		72070E5C2808151900D9F345 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72070E5B2808151900D9F345 /* News.swift */; };
 		72070E5E28081BC500D9F345 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72070E5D28081BC500D9F345 /* MainViewModel.swift */; };
 		72070E6128081DF500D9F345 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72070E6028081DF500D9F345 /* DetailsViewController.swift */; };
+		7252BED12809E7CA00B02543 /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252BED02809E7CA00B02543 /* NewsCoordinator.swift */; };
+		7252BED42809ED0200B02543 /* NewsDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252BED32809ED0200B02543 /* NewsDetailCoordinator.swift */; };
 		72F47D8E2809C6B2004E50A6 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F47D8D2809C6B2004E50A6 /* DetailsViewModel.swift */; };
 		72F47D902809C6F7004E50A6 /* NewsDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F47D8F2809C6F7004E50A6 /* NewsDetailsRequest.swift */; };
+		72F47D932809CD35004E50A6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F47D922809CD35004E50A6 /* Coordinator.swift */; };
+		72F47D952809CD55004E50A6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F47D942809CD55004E50A6 /* AppCoordinator.swift */; };
+		72F47D972809CE21004E50A6 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F47D962809CE21004E50A6 /* Storyboarded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +70,13 @@
 		72070E5B2808151900D9F345 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		72070E5D28081BC500D9F345 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		72070E6028081DF500D9F345 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		7252BED02809E7CA00B02543 /* NewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
+		7252BED32809ED0200B02543 /* NewsDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCoordinator.swift; sourceTree = "<group>"; };
 		72F47D8D2809C6B2004E50A6 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		72F47D8F2809C6F7004E50A6 /* NewsDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsRequest.swift; sourceTree = "<group>"; };
+		72F47D922809CD35004E50A6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		72F47D942809CD55004E50A6 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		72F47D962809CE21004E50A6 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +127,7 @@
 		72070E1C2808074600D9F345 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
+				72F47D912809CD19004E50A6 /* Coordinator */,
 				72070E5628080FEE00D9F345 /* Utils */,
 				72070E51280809C300D9F345 /* Project Files */,
 				72070E502808099800D9F345 /* Network */,
@@ -168,8 +179,8 @@
 		72070E4F2808099100D9F345 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				72F47D982809CE98004E50A6 /* NewsView */,
 				72070E5F28081DE100D9F345 /* Details */,
-				72070E212808074600D9F345 /* MainViewController.swift */,
 				72070E232808074600D9F345 /* Main.storyboard */,
 			);
 			path = Views;
@@ -198,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				72070E572808100100D9F345 /* Constants.swift */,
+				72F47D962809CE21004E50A6 /* Storyboarded.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -205,9 +217,44 @@
 		72070E5F28081DE100D9F345 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				7252BED22809ECF200B02543 /* Coordinator */,
 				72070E6028081DF500D9F345 /* DetailsViewController.swift */,
 			);
 			path = Details;
+			sourceTree = "<group>";
+		};
+		7252BECF2809E7B200B02543 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7252BED02809E7CA00B02543 /* NewsCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		7252BED22809ECF200B02543 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				7252BED32809ED0200B02543 /* NewsDetailCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		72F47D912809CD19004E50A6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				72F47D922809CD35004E50A6 /* Coordinator.swift */,
+				72F47D942809CD55004E50A6 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		72F47D982809CE98004E50A6 /* NewsView */ = {
+			isa = PBXGroup;
+			children = (
+				7252BECF2809E7B200B02543 /* Coordinator */,
+				72070E212808074600D9F345 /* MainViewController.swift */,
+			);
+			path = NewsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,16 +389,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				72070E5528080D4C00D9F345 /* Network.swift in Sources */,
+				7252BED12809E7CA00B02543 /* NewsCoordinator.swift in Sources */,
 				72070E222808074600D9F345 /* MainViewController.swift in Sources */,
+				72F47D972809CE21004E50A6 /* Storyboarded.swift in Sources */,
+				72F47D932809CD35004E50A6 /* Coordinator.swift in Sources */,
 				72070E5C2808151900D9F345 /* News.swift in Sources */,
 				72070E5A280814F700D9F345 /* NewsRequest.swift in Sources */,
 				72070E1E2808074600D9F345 /* AppDelegate.swift in Sources */,
+				72F47D952809CD55004E50A6 /* AppCoordinator.swift in Sources */,
 				72070E202808074600D9F345 /* SceneDelegate.swift in Sources */,
 				72070E5328080BF000D9F345 /* Requstable.swift in Sources */,
 				72F47D8E2809C6B2004E50A6 /* DetailsViewModel.swift in Sources */,
 				72070E582808100100D9F345 /* Constants.swift in Sources */,
 				72070E5E28081BC500D9F345 /* MainViewModel.swift in Sources */,
 				72070E6128081DF500D9F345 /* DetailsViewController.swift in Sources */,
+				7252BED42809ED0200B02543 /* NewsDetailCoordinator.swift in Sources */,
 				72F47D902809C6F7004E50A6 /* NewsDetailsRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,7 +588,6 @@
 				INFOPLIST_FILE = NewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -564,7 +615,6 @@
 				INFOPLIST_FILE = NewsApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

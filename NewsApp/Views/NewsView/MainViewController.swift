@@ -17,11 +17,12 @@ class MainViewController: UIViewController, Storyboarded {
         }
     }
     
+    var coordinator: NewsCoordinator?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         viewModel = MainViewModel()
-        viewModel?.delegate = self
         viewModel?.fetchData()
     }
     
@@ -47,10 +48,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
-        let detailsVC = storyBoard.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        detailsVC.newsID = news[indexPath.row]
-        navigationController?.pushViewController(detailsVC, animated: true)
+        coordinator = NewsCoordinator(navigationController: self.navigationController!)
+        coordinator?.getNewsDetail(with: indexPath.row)
     }
     
 }

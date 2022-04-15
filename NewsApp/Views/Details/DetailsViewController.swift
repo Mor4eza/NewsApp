@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, Storyboarded {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var webView: WKWebView!
