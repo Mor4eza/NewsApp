@@ -23,6 +23,7 @@ class MainViewController: UIViewController, Storyboarded {
         super.viewDidLoad()
         setupTableView()
         viewModel = MainViewModel()
+        viewModel?.delegate = self
         viewModel?.fetchData()
     }
     

@@ -17,14 +17,12 @@ class AppCoordinator: Coordinator {
     init(window: UIWindow) {
         self.window = window
         navigatioController = UINavigationController()
-        navigatioController.navigationBar.prefersLargeTitles = true
-        navigatioController.navigationBar.barStyle = .black
         newsListCoordinator = NewsCoordinator(navigationController: navigatioController)
     }
     
     func start() {
-        window.rootViewController = navigatioController
         newsListCoordinator?.start()
+        window.rootViewController = navigatioController
         window.makeKeyAndVisible()
     }
 }
