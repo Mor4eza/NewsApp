@@ -179,7 +179,7 @@
 		72070E4F2808099100D9F345 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				72F47D982809CE98004E50A6 /* NewsView */,
+				72F47D982809CE98004E50A6 /* NewsListView */,
 				72070E5F28081DE100D9F345 /* Details */,
 				72070E232808074600D9F345 /* Main.storyboard */,
 			);
@@ -248,13 +248,13 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		72F47D982809CE98004E50A6 /* NewsView */ = {
+		72F47D982809CE98004E50A6 /* NewsListView */ = {
 			isa = PBXGroup;
 			children = (
 				7252BECF2809E7B200B02543 /* Coordinator */,
 				72070E212808074600D9F345 /* MainViewController.swift */,
 			);
-			path = NewsView;
+			path = NewsListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

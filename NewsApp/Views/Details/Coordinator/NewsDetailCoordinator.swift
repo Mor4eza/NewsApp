@@ -27,4 +27,7 @@ class NewsDetailCoordinator: Coordinator {
         navigationController.pushViewController(newsDetailVC, animated: true)
     }
     
+    func dismiss() {
+        newsDetailsVC?.dismiss(animated: true, completion: nil)
+    }
 }

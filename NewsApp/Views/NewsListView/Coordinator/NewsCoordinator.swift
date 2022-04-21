@@ -30,5 +30,8 @@ class NewsCoordinator: Coordinator {
         newsDetailCoordinator.start()
     }
     
+    func dismiss() {
+        newsListViewController?.dismiss(animated: true, completion: nil)
+    }
 }
 

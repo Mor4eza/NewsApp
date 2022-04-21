@@ -67,6 +67,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator = NewsCoordinator(navigationController: self.navigationController!)
         coordinator?.getNewsDetail(with: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
@@ -78,10 +79,12 @@ extension MainViewController: MainViewModelDelegate {
     }
     
     func didGetError(error: Error) {
-        self.loadingView.stopAnimating()
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.navigationController?.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.loadingView.stopAnimating()
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.navigationController?.present(alert, animated: true, completion: nil)
+        }
     }
     
     

@@ -14,7 +14,6 @@ protocol MainViewModelDelegate {
 
 class MainViewModel {
     
-    var news: [Int] = []
     var delegate: MainViewModelDelegate?
     
     func fetchData() {
