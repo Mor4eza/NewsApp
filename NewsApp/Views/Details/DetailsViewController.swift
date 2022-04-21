@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class DetailsViewController: UIViewController, Storyboarded {
+class DetailsViewController: UIViewController, Storyboarded, WKNavigationDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var webView: WKWebView!
@@ -20,6 +20,7 @@ class DetailsViewController: UIViewController, Storyboarded {
     }
     
     var viewModel = DetailsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News Detail"
@@ -28,6 +29,7 @@ class DetailsViewController: UIViewController, Storyboarded {
             return
         }
 
+        webView.navigationDelegate = self
         viewModel.fetchNewsDetails(id: newsID)
         
     }
@@ -42,6 +44,15 @@ class DetailsViewController: UIViewController, Storyboarded {
         self.webView.load(request)
     }
 
+    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        guard let serverTrust = challenge.protectionSpace.serverTrust  else {
+            completionHandler(.useCredential, nil)
+            return
+        }
+        let credential = URLCredential(trust: serverTrust)
+        completionHandler(.useCredential, credential)
+        
+    }
 }
 
 extension DetailsViewController: DetailsViewModelDelegate {
@@ -51,7 +62,9 @@ extension DetailsViewController: DetailsViewModelDelegate {
     }
     
     func didGetError(error: Error) {
-        print("error")
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.navigationController?.present(alert, animated: true, completion: nil)
     }
     
     
