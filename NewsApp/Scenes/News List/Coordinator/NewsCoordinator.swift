@@ -11,7 +11,7 @@ class NewsCoordinator: Coordinator {
     
     private var navigationController: UINavigationController
     
-    private var newsListViewController: MainViewController?
+    private var newsListViewController: NewsListViewController?
     private var newsDetailCoordinator: NewsDetailCoordinator?
     
     init(navigationController: UINavigationController) {
@@ -19,7 +19,7 @@ class NewsCoordinator: Coordinator {
     }
     
     func start() {
-        let newsVC = MainViewController.instantiate()
+        let newsVC = NewsListViewController.instantiate()
         self.newsListViewController = newsVC
         navigationController.pushViewController(newsVC, animated: true)
     }

@@ -1,5 +1,5 @@
     //
-    //  ViewController.swift
+    //  NewsListViewController.swift
     //  NewsApp
     //
     //  Created by Morteza on 4/14/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, Storyboarded {
+class NewsListViewController: UIViewController, Storyboarded {
     
     @IBOutlet weak var newsTableView: UITableView!
     
@@ -52,7 +52,7 @@ class MainViewController: UIViewController, Storyboarded {
     
 }
 
-extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+extension NewsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         news.count
     }
@@ -72,7 +72,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension MainViewController: MainViewModelDelegate {
+extension NewsListViewController: MainViewModelDelegate {
     func didFetchNews(news: [Int]) {
         self.loadingView.stopAnimating()
         self.news = news
