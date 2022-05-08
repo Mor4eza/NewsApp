@@ -12,12 +12,12 @@ class AppCoordinator: Coordinator {
     
     private let window: UIWindow
     private let navigatioController: UINavigationController
-    private var newsListCoordinator: NewsCoordinator?
+    private var newsListCoordinator: NewsListCoordinator?
     
     init(window: UIWindow) {
         self.window = window
         navigatioController = UINavigationController()
-        newsListCoordinator = NewsCoordinator(navigationController: navigatioController)
+        newsListCoordinator = NewsListCoordinator(navigationController: navigatioController)
     }
     
     func start() {

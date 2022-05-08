@@ -8,10 +8,15 @@
 import Foundation
 
 final class NewsRequest: Requstable {
-    typealias responseType = [Int]
+    typealias responseType = NewsList
+    
+    var query: String = ""
     
     var path: String {
-        "/v0/topstories.json?print=pretty"
+        "?q=\(query)&from=2022-05-08&sortBy=popularity&apiKey=\(Constants.API_Key)"
     }
-
+    
+    init(query: String) {
+        self.query = query
+    }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsCoordinator: Coordinator {
+class NewsListCoordinator: Coordinator {
     
     private var navigationController: UINavigationController
     
@@ -28,6 +28,12 @@ class NewsCoordinator: Coordinator {
         let newsDetailCoordinator = NewsDetailCoordinator(navigationController: navigationController, newsID: id)
         self.newsDetailCoordinator = newsDetailCoordinator
         newsDetailCoordinator.start()
+    }
+    
+    func showAlert(title: String, desc: String) {
+        let alert = UIAlertController(title: title, message: desc, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.navigationController.present(alert, animated: true, completion: nil)
     }
     
     func dismiss() {

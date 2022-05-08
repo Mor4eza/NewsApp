@@ -7,26 +7,18 @@
 
 import Foundation
 
-protocol MainViewModelDelegate {
-    func didFetchNews(news: [Int])
-    func didGetError(error: Error)
-}
-
 class MainViewModel {
-    
-    var delegate: MainViewModelDelegate?
+    var news: Observable<NewsList?> = Observable(nil)
+    var FetchError: Observable<NetworkError?> = Observable(nil)
     
     func fetchData() {
-        let newsRequest = NewsRequest()
+        let newsRequest = NewsRequest(query: "Apple")
         Network().request(req: newsRequest) { [self] result in
             switch result {
                 case .success(let news):
-                    print(news)
-                    
-                    delegate?.didFetchNews(news: news)
+                    self.news.value = news
                 case .failure(let error):
-                    delegate?.didGetError(error: error)
-//                
+                    FetchError.value = error
                     print("Error==>" + error.localizedDescription)
             }
         }

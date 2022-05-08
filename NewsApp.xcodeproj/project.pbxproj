@@ -39,7 +39,8 @@
 		721418E92827C6410026AC46 /* ValueChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721418D82827C6410026AC46 /* ValueChange.swift */; };
 		721418EA2827C6410026AC46 /* EventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721418D92827C6410026AC46 /* EventHandler.swift */; };
 		721418EB2827C6410026AC46 /* EventPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721418DA2827C6410026AC46 /* EventPublisher.swift */; };
-		7252BED12809E7CA00B02543 /* NewsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252BED02809E7CA00B02543 /* NewsCoordinator.swift */; };
+		721418FA2827D2AF0026AC46 /* NewsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721418F92827D2AF0026AC46 /* NewsList.swift */; };
+		7252BED12809E7CA00B02543 /* NewsListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252BED02809E7CA00B02543 /* NewsListCoordinator.swift */; };
 		7252BED42809ED0200B02543 /* NewsDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7252BED32809ED0200B02543 /* NewsDetailCoordinator.swift */; };
 		72F47D8E2809C6B2004E50A6 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F47D8D2809C6B2004E50A6 /* DetailsViewModel.swift */; };
 		72F47D902809C6F7004E50A6 /* NewsDetailsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F47D8F2809C6F7004E50A6 /* NewsDetailsRequest.swift */; };
@@ -103,7 +104,8 @@
 		721418D82827C6410026AC46 /* ValueChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueChange.swift; sourceTree = "<group>"; };
 		721418D92827C6410026AC46 /* EventHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventHandler.swift; sourceTree = "<group>"; };
 		721418DA2827C6410026AC46 /* EventPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventPublisher.swift; sourceTree = "<group>"; };
-		7252BED02809E7CA00B02543 /* NewsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCoordinator.swift; sourceTree = "<group>"; };
+		721418F92827D2AF0026AC46 /* NewsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsList.swift; sourceTree = "<group>"; };
+		7252BED02809E7CA00B02543 /* NewsListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListCoordinator.swift; sourceTree = "<group>"; };
 		7252BED32809ED0200B02543 /* NewsDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailCoordinator.swift; sourceTree = "<group>"; };
 		72F47D8D2809C6B2004E50A6 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		72F47D8F2809C6F7004E50A6 /* NewsDetailsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsRequest.swift; sourceTree = "<group>"; };
@@ -359,6 +361,7 @@
 			isa = PBXGroup;
 			children = (
 				72070E59280814F700D9F345 /* NewsRequest.swift */,
+				721418F92827D2AF0026AC46 /* NewsList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -390,7 +393,7 @@
 		721418F62827C6F00026AC46 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				7252BED02809E7CA00B02543 /* NewsCoordinator.swift */,
+				7252BED02809E7CA00B02543 /* NewsListCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -545,13 +548,14 @@
 				721418E92827C6410026AC46 /* ValueChange.swift in Sources */,
 				72070E5528080D4C00D9F345 /* Network.swift in Sources */,
 				721418DB2827C6410026AC46 /* Observer.swift in Sources */,
-				7252BED12809E7CA00B02543 /* NewsCoordinator.swift in Sources */,
+				7252BED12809E7CA00B02543 /* NewsListCoordinator.swift in Sources */,
 				721418DE2827C6410026AC46 /* CustomBindable.swift in Sources */,
 				721418DF2827C6410026AC46 /* Bindable.swift in Sources */,
 				72070E222808074600D9F345 /* NewsListViewController.swift in Sources */,
 				72F47D972809CE21004E50A6 /* Storyboarded.swift in Sources */,
 				72F47D932809CD35004E50A6 /* Coordinator.swift in Sources */,
 				72070E5C2808151900D9F345 /* News.swift in Sources */,
+				721418FA2827D2AF0026AC46 /* NewsList.swift in Sources */,
 				72070E5A280814F700D9F345 /* NewsRequest.swift in Sources */,
 				72070E1E2808074600D9F345 /* AppDelegate.swift in Sources */,
 				721418E02827C6410026AC46 /* DynamicObservable.swift in Sources */,

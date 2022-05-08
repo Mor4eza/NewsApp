@@ -12,12 +12,12 @@ class NewsListViewController: UIViewController, Storyboarded {
     @IBOutlet weak var newsTableView: UITableView!
     
     var viewModel: MainViewModel?
-    var news: [Int] = [] {
+    var news: [Article] = [] {
         didSet {
             newsTableView.reloadData()
         }
     }
-    var coordinator: NewsCoordinator?
+    var coordinator: NewsListCoordinator?
     
     var loadingView: UIActivityIndicatorView = {
         let actIndicator = UIActivityIndicatorView()
@@ -31,8 +31,17 @@ class NewsListViewController: UIViewController, Storyboarded {
         setupTableView()
         setupView()
         viewModel = MainViewModel()
-        viewModel?.delegate = self
         viewModel?.fetchData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        binding()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unobserveAll()
     }
     
     func setupView() {
@@ -60,31 +69,33 @@ extension NewsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        cell.textLabel?.text = "\(news[indexPath.row])"
+        cell.textLabel?.text = news[indexPath.row].title
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator = NewsCoordinator(navigationController: self.navigationController!)
+        coordinator = NewsListCoordinator(navigationController: self.navigationController!)
         coordinator?.getNewsDetail(with: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
 
-extension NewsListViewController: MainViewModelDelegate {
-    func didFetchNews(news: [Int]) {
-        self.loadingView.stopAnimating()
-        self.news = news
-    }
+extension NewsListViewController {
     
-    func didGetError(error: Error) {
-        DispatchQueue.main.async {
-            self.loadingView.stopAnimating()
-            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.navigationController?.present(alert, animated: true, completion: nil)
-        }
+    func binding() {
+        viewModel?.news.addEventHandler({ [weak self] newsList in
+            self?.loadingView.stopAnimating()
+            self?.news = newsList.newValue!.articles
+        })
+        
+            // Error Binding
+        viewModel?.FetchError.addEventHandler({ [weak self] error in
+            DispatchQueue.main.async {
+                self?.loadingView.stopAnimating()
+                self?.coordinator?.showAlert(title: "Error", desc: error.newValue!.localizedDescription)
+            }
+        })
     }
     
     
