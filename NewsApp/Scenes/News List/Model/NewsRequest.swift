@@ -13,7 +13,7 @@ final class NewsRequest: Requstable {
     var query: String = ""
     
     var path: String {
-        "?q=\(query)&from=2022-05-08&sortBy=popularity&apiKey=\(Constants.API_Key)"
+        "/trendig"
     }
     
     init(query: String) {

@@ -7,23 +7,20 @@
 
 import Foundation
 
-protocol DetailsViewModelDelegate {
-    func didFetchNewsDetails(news: News)
-    func didGetError(error: Error)
-}
-
 class DetailsViewModel {
     
-    var delegate: DetailsViewModelDelegate?
+    var article: Observable<Article?> = Observable(nil)
+    var FetchError: Observable<NetworkError?> = Observable(nil)
+
     
     func fetchNewsDetails(id: Int) {
         let newsDetailsRequest = NewsDetailsRequest(id: id)
-        Network().request(req: newsDetailsRequest) { result in
+        Network().request(req: newsDetailsRequest) { [weak self] result in
             switch result {
                 case .success(let news):
-                    self.delegate?.didFetchNewsDetails(news: news)
+                    self?.article.value = news
                 case .failure(let error):
-                    self.delegate?.didGetError(error: error)
+                    self?.FetchError.value = error
             }
         }
     }

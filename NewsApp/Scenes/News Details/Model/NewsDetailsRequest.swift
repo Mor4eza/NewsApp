@@ -8,12 +8,12 @@
 import Foundation
 
 class NewsDetailsRequest: Requstable {
-    typealias responseType = News
+    typealias responseType = Article
     
     var id: Int
     
     var path: String {
-        "/v0/item/\(id).json"
+        "/detail"
     }
     
     init(id: Int) {

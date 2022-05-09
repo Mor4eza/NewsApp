@@ -13,7 +13,7 @@ class DetailsViewController: UIViewController, Storyboarded, WKNavigationDelegat
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var webView: WKWebView!
     var newsID: Int?
-    var news: News? {
+    var news: Article? {
         didSet {
             updateUI()
         }
@@ -24,7 +24,7 @@ class DetailsViewController: UIViewController, Storyboarded, WKNavigationDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "News Detail"
-        viewModel.delegate = self
+        
         guard let newsID = newsID else {
             return
         }
@@ -32,6 +32,16 @@ class DetailsViewController: UIViewController, Storyboarded, WKNavigationDelegat
         webView.navigationDelegate = self
         viewModel.fetchNewsDetails(id: newsID)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        binding()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        unobserveAll()
     }
     
     private func updateUI() {
@@ -55,21 +65,22 @@ class DetailsViewController: UIViewController, Storyboarded, WKNavigationDelegat
     }
 }
 
-extension DetailsViewController: DetailsViewModelDelegate {
+extension DetailsViewController {
     
-    func didFetchNewsDetails(news: News) {
-        self.news = news
-    }
-    
-    func didGetError(error: Error) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: { _ in
-                self.navigationController?.popViewController(animated: true)
-            }))
-            self.navigationController?.present(alert, animated: true, completion: nil)
+    func binding() {
+        viewModel.article.addEventHandler { [weak self] article in
+            self?.news = article.newValue
+        }
+        
+        viewModel.FetchError.addEventHandler { [weak self] error in
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Error", message: error.newValue?.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default,handler: { _ in
+                    self?.navigationController?.popViewController(animated: true)
+                }))
+                self?.navigationController?.present(alert, animated: true, completion: nil)
+            }
         }
     }
-    
     
 }

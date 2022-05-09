@@ -14,10 +14,13 @@ class NewsListViewController: UIViewController, Storyboarded {
     var viewModel: MainViewModel?
     var news: [Article] = [] {
         didSet {
+            self.newsDataSource = TableViewDataSource(data: self.news)
+            self.newsTableView.dataSource = self.newsDataSource
             newsTableView.reloadData()
         }
     }
     var coordinator: NewsListCoordinator?
+    var newsDataSource: TableViewDataSource<[Article], NewsTableViewCell>?
     
     var loadingView: UIActivityIndicatorView = {
         let actIndicator = UIActivityIndicatorView()
@@ -54,28 +57,17 @@ class NewsListViewController: UIViewController, Storyboarded {
     
     private func setupTableView() {
         newsTableView.delegate = self
-        newsTableView.dataSource = self
-        newsTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        newsTableView.register(UINib(nibName: "NewsTableViewCell", bundle: nil), forCellReuseIdentifier: NewsTableViewCell.reuseIdentifier)
         
     }
     
 }
 
-extension NewsListViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        news.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        
-        cell.textLabel?.text = news[indexPath.row].title
-        return cell
-    }
+extension NewsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator = NewsListCoordinator(navigationController: self.navigationController!)
-        coordinator?.getNewsDetail(with: indexPath.row)
+        coordinator?.getNewsDetail(with: 12555)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
