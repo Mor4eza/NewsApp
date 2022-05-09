@@ -172,16 +172,11 @@
 		72070E1C2808074600D9F345 /* NewsApp */ = {
 			isa = PBXGroup;
 			children = (
-				721418C12827C6160026AC46 /* External Libraries */,
+				72C2106028291F820070E318 /* Core */,
 				72F47D912809CD19004E50A6 /* Coordinator */,
-				72070E5628080FEE00D9F345 /* Utils */,
-				721418F72827C7850026AC46 /* Extensions */,
-				72070E51280809C300D9F345 /* Project Files */,
-				72070E502808099800D9F345 /* Network */,
-				721418EC2827C6740026AC46 /* Scenes */,
-				72070E232808074600D9F345 /* Main.storyboard */,
+				72070E51280809C300D9F345 /* Assets */,
+				721418EC2827C6740026AC46 /* Features */,
 				72070E1F2808074600D9F345 /* SceneDelegate.swift */,
-				72070E2B2808074700D9F345 /* Info.plist */,
 			);
 			path = NewsApp;
 			sourceTree = "<group>";
@@ -212,19 +207,21 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		72070E51280809C300D9F345 /* Project Files */ = {
+		72070E51280809C300D9F345 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				72070E262808074700D9F345 /* Assets.xcassets */,
 				72070E1D2808074600D9F345 /* AppDelegate.swift */,
 				72070E282808074700D9F345 /* LaunchScreen.storyboard */,
+				72070E2B2808074700D9F345 /* Info.plist */,
 			);
-			path = "Project Files";
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		72070E5628080FEE00D9F345 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				721418F72827C7850026AC46 /* Extensions */,
 				72DA51ED2828E4AC00D9629E /* Generic TableView */,
 				72070E572808100100D9F345 /* Constants.swift */,
 				72F47D962809CE21004E50A6 /* Storyboarded.swift */,
@@ -232,12 +229,12 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		721418C12827C6160026AC46 /* External Libraries */ = {
+		721418C12827C6160026AC46 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
 				721418C22827C6400026AC46 /* Hanson */,
 			);
-			path = "External Libraries";
+			path = Libraries;
 			sourceTree = "<group>";
 		};
 		721418C22827C6400026AC46 /* Hanson */ = {
@@ -312,13 +309,14 @@
 			path = "Event Publisher";
 			sourceTree = "<group>";
 		};
-		721418EC2827C6740026AC46 /* Scenes */ = {
+		721418EC2827C6740026AC46 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				721418EE2827C6900026AC46 /* News Details */,
 				721418ED2827C6880026AC46 /* News List */,
+				721418EE2827C6900026AC46 /* News Details */,
+				72070E232808074600D9F345 /* Main.storyboard */,
 			);
-			path = Scenes;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		721418ED2827C6880026AC46 /* News List */ = {
@@ -416,6 +414,16 @@
 				72C2105E2828ED9E0070E318 /* Array+Indexable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		72C2106028291F820070E318 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				72070E502808099800D9F345 /* Network */,
+				721418C12827C6160026AC46 /* Libraries */,
+				72070E5628080FEE00D9F345 /* Utils */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		72DA51ED2828E4AC00D9629E /* Generic TableView */ = {
@@ -795,7 +803,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3A83C749KK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_FILE = NewsApp/Assets/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -824,7 +832,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3A83C749KK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsApp/Info.plist;
+				INFOPLIST_FILE = NewsApp/Assets/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

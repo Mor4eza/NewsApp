@@ -65,9 +65,13 @@ class NewsListViewController: UIViewController, Storyboarded {
 
 extension NewsListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        180.0
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         coordinator = NewsListCoordinator(navigationController: self.navigationController!)
-        coordinator?.getNewsDetail(with: 12555)
+        coordinator?.getNewsDetail(with: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

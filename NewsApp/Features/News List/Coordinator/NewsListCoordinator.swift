@@ -24,6 +24,10 @@ class NewsListCoordinator: Coordinator {
         navigationController.pushViewController(newsVC, animated: true)
     }
     
+    func addComment(id: Int, comment: String) {
+        
+    }
+    
     func getNewsDetail(with id: Int) {
         let newsDetailCoordinator = NewsDetailCoordinator(navigationController: navigationController, newsID: id)
         self.newsDetailCoordinator = newsDetailCoordinator
