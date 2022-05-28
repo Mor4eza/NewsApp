@@ -20,9 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         self.appCoordinator = appCordinator
 
-        appCordinator.start()
-
-
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

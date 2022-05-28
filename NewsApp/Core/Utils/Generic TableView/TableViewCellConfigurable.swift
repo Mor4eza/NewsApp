@@ -10,7 +10,9 @@ import UIKit
 protocol TableViewCellConfigurable {
     associatedtype ItemType
     associatedtype CellType: UITableViewCell
-    
+
+    static var reuseIdentifier: String { get }
+
     static func reuseIdentifierForIndexPath(indexPath: IndexPath) -> String
     static func configureCellAtIndexPath(indexPath: IndexPath, item: ItemType, cell: CellType)
 }
